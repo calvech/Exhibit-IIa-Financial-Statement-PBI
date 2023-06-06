@@ -1,0 +1,34 @@
+SubHeader = 
+IF(
+    RIGHT('Exhibit IIa'[GL Accounts],4)="N_SU","Change in Net Position",
+    IF(
+        MID('Exhibit IIa'[GL Accounts],12,1)="3", "Beginning Net Position",
+        IF(
+            MID('Exhibit IIa'[GL Accounts],10,1)<>"0",
+            SWITCH(MID('Exhibit IIa'[GL Accounts],10,1),
+            "1", "Instruction",
+    "3", "Public Support",
+    "4", "Academic Support",
+    "5", "Student Services",
+    "6", "Institutional Support",
+    "7", "Operations & maintenance of plant",
+    "8", "Scholarships",
+    "9", "Transfers",
+    ""),
+    IF(LEFT('Exhibit IIa'[GL Accounts],1)="1","Auxiliary Revenue",
+    SWITCH(RIGHT('Exhibit IIa'[GL Accounts],4),
+    "4221","State Instructional Appropriations",
+    "4225","State Capital Appropriations",
+    SWITCH(
+        MID('Exhibit IIa'[GL Accounts],12,2),
+        "41", "Tuition & Fees",
+        "43", "Grants & Contracts",
+        "44", "Grants & Contracts",
+        "45", "Other Revenue & Gifts",
+        "46", "Sales and Services",
+        "47", "Other Revenue & Gifts",
+        "48", "Other Revenue & Gifts",
+        "65", "Debt Service",
+        "68", "Depreciation",
+        ""
+    ))))))
