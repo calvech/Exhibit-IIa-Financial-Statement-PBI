@@ -1,0 +1,7 @@
+Variance = 
+SWITCH(TRUE(),
+    'Exhibit IIa'[Fiscal Year] = "FY23 Actual" && 'Exhibit IIa'[Header]="Expenses", -'Exhibit IIa'[Amount],
+    'Exhibit IIa'[Fiscal Year] = "FY22 Actual" && 'Exhibit IIa'[Header]="Expenses", 'Exhibit IIa'[Amount],
+    'Exhibit IIa'[Fiscal Year] = "FY22 Actual" , -'Exhibit IIa'[Amount],
+    'Exhibit IIa'[Amount]
+)
